@@ -51,3 +51,27 @@ button:hover {
     color: #38bdf8;
     min-height: 1.5rem;
 }
+
+/* Uso de CSS Grid para la cuadrícula de habilidades */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Crea dos columnas del mismo tamaño */
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+.skill {
+    background-color: #334155;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+/* Diseño Responsive: Si la pantalla mide 480px o menos (celulares), pasa a 1 sola columna */
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr; 
+    }
+}
