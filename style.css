@@ -1,7 +1,7 @@
 body {
     font-family: system-ui, -apple-system, sans-serif;
-    background-color: #0f172a;
-    color: #f8fafc;
+    background-color: #e5e7eb; /* Fondo gris claro */
+    color: #374151; /* Texto en gris oscuro */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,66 +10,73 @@ body {
 }
 
 .card {
-    background-color: #1e293b;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff; /* Tarjeta blanca para contrastar */
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     text-align: center;
-    max-width: 400px;
+    max-width: 420px;
     width: 100%;
+    border-top: 6px solid #a8e6cf; /* Acento superior en verde pastel */
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-bottom: 0.5rem;
+    color: #1f2937;
 }
 
 .subtitle {
-    color: #94a3b8;
-    font-size: 0.9rem;
+    color: #6b7280;
+    font-size: 0.95rem;
     margin-bottom: 1.5rem;
+    font-weight: 500;
 }
 
 button {
-    background-color: #3b82f6;
-    color: white;
+    background-color: #a8e6cf; /* Botón verde pastel */
+    color: #1f2937; /* Letra oscura para que sea legible */
     border: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    font-weight: bold;
+    border-radius: 8px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: transform 0.2s, background 0.2s;
+    width: 100%;
 }
 
 button:hover {
-    background-color: #2563eb;
+    background-color: #8ce0c0; /* Verde un poco más intenso al pasar el mouse */
+    transform: translateY(-2px); /* Pequeña animación de elevación */
 }
 
 .output {
     margin-top: 1rem;
     font-size: 0.95rem;
-    color: #38bdf8;
+    color: #10b981; /* Texto de respuesta en un verde esmeralda legible */
     min-height: 1.5rem;
+    font-weight: 500;
 }
 
-/* Uso de CSS Grid para la cuadrícula de habilidades */
+/* Cuadrícula de habilidades con CSS Grid */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Crea dos columnas del mismo tamaño */
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     margin-top: 1.5rem;
 }
 
 .skill {
-    background-color: #334155;
+    background-color: #f3f4f6; /* Fondo gris muy sutil para las habilidades */
     padding: 0.75rem;
     border-radius: 8px;
     font-size: 0.85rem;
-    color: #e2e8f0;
-    font-weight: 500;
+    color: #4b5563;
+    font-weight: 600;
+    border: 1px solid #d1d5db;
 }
 
-/* Diseño Responsive: Si la pantalla mide 480px o menos (celulares), pasa a 1 sola columna */
+/* Responsive: 1 columna en pantallas pequeñas */
 @media (max-width: 480px) {
     .skills-grid {
         grid-template-columns: 1fr; 
