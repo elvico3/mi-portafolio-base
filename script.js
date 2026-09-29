@@ -1,31 +1,36 @@
-// 1. Definición de variables y arreglos (Arrays)
-const saludos = [
-    "¡Bienvenido! Estudiar cómo funciona internet es el primer paso.",
-    "¡Hola! La lógica de programación se construye paso a paso.",
-    "¡Excelente día! Git y la terminal ya forman parte de tu flujo."
-];
-
-// 2. Selección de elementos del DOM (Document Object Model)
+// 1. Selección de elementos del DOM
 const boton = document.getElementById("saludoBtn");
 const output = document.getElementById("mensajeOutput");
 
-let contadorClicks = 0; // Variable de estado
+// Cambiamos el texto del botón dinámicamente desde JavaScript
+boton.textContent = "Consultar servidor externo (API)";
 
-// 3. Creación de una función y uso de condicionales
-function generarSaludoAleatorio() {
-    contadorClicks++; // Incrementamos el bucle/contador
-    
-    // Condicional para cambiar el comportamiento según las veces que haga clic
-    if (contadorClicks <= 3) {
-        // Seleccionamos un mensaje aleatorio basado en el índice del arreglo
-        const indiceAleatorio = Math.floor(Math.random() * saludos.length);
-        output.textContent = saludos[indiceAleatorio] + ` (Clic #${contadorClicks})`;
-    } else {
-        output.textContent = "🚀 ¡Estás listo para avanzar a la Fase 1 y dominar el diseño web responsive!";
-        boton.disabled = true; // Desactivamos el botón
-        boton.style.opacity = "0.5";
+// 2. Función asíncrona (nota la palabra clave 'async')
+async function obtenerDatoExterno() {
+    try {
+        // Estado de carga mientras esperamos al servidor
+        output.textContent = "⏳ Conectando con la API...";
+        boton.disabled = true; // Desactivamos el botón para evitar múltiples clics
+
+        // 3. Uso de 'fetch' y 'await' para hacer la petición HTTP a internet
+        // Usamos una API pública y gratuita que genera consejos (advices)
+        const respuesta = await fetch("https://api.adviceslip.com/advice");
+        
+        // 4. Convertimos la respuesta cruda del servidor a formato JSON
+        const datos = await respuesta.json();
+
+        // 5. Inyectamos el dato extraído en el DOM
+        output.textContent = `📡 Respuesta del servidor: "${datos.slip.advice}"`;
+        
+    } catch (error) {
+        // Manejo de errores en caso de que falle el internet o el servidor
+        output.textContent = "❌ Error al conectar con el servidor.";
+        console.error(error);
+    } finally {
+        // Esta sección se ejecuta siempre, haya error o éxito
+        boton.disabled = false; 
     }
 }
 
-// 4. Escuchador de eventos (Event Listener)
-boton.addEventListener("click", generarSaludoAleatorio);
+// 6. Escuchador de eventos
+boton.addEventListener("click", obtenerDatoExterno);
