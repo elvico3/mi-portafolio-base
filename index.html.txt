@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Fundamentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="card">
+        <header>
+            <h1>Hola, soy un Desarrollador en Ruta</h1>
+            <p class="subtitle">Estudiando ingeniería y construyendo sistemas</p>
+        </header>
+
+        <section class="interactive-section">
+            <button id="saludoBtn">Haz clic para un saludo dinámico</button>
+            <p id="mensajeOutput" class="output"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
