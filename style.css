@@ -82,3 +82,21 @@ button:hover {
         grid-template-columns: 1fr; 
     }
 }
+
+/* Estilo especial para la caja de descarga de CV en la cuadrícula */
+.cv-skill {
+    background-color: #a8e6cf; /* Verde pastel */
+    color: #1f2937; /* Texto oscuro para contraste */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s, background 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.cv-skill:hover {
+    background-color: #8ce0c0; /* Verde un poco más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Animación de elevación */
+}
